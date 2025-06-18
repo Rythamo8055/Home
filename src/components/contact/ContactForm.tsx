@@ -58,7 +58,7 @@ export function ContactForm() {
       )}
     >
       <CardHeader>
-        <CardTitle className="font-headline text-3xl text-primary">Get in Touch</CardTitle>
+        <CardTitle className="font-headline text-2xl md:text-3xl text-primary">Get in Touch</CardTitle>
         <CardDescription className="text-foreground/80">
           Have a question or want to collaborate? Send me a message!
         </CardDescription>

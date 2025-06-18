@@ -133,13 +133,13 @@ body {
     --ctp-mocha-surface1: 230 9% 21%;   /* #494d64 */
     --ctp-mocha-surface0: 236 11% 16%;   /* #363a4f */
     
-    --ctp-mocha-base: 240 13% 12%; /* #1e1e2e */
+    --ctp-mocha-base: 240 13% 12%; /* #1e1e2e Desaturated Tan (#302D41) is close to 240 9% 21% - using base for deeper dark */
     --ctp-mocha-mantle: 240 13% 10%; /* #181825 */
     --ctp-mocha-crust: 240 14% 8%; /* #11111b */
 
 
     /* Dark Theme (Mocha) Overrides - More Colorful */
-    --background: var(--ctp-mocha-base); /* PRD: #302D41 (desaturated tan) -> using Mocha Base for now */
+    --background: var(--ctp-mocha-base); 
     --foreground: var(--ctp-mocha-text);
 
     --card: var(--ctp-mocha-surface0);
@@ -148,22 +148,22 @@ body {
     --popover: var(--ctp-mocha-mantle);
     --popover-foreground: var(--ctp-mocha-text);
 
-    --primary: var(--ctp-mocha-blue); /* PRD: Muted Teal #8AADF4. Mocha Blue is #89b4fa */
+    --primary: var(--ctp-mocha-teal); /* Muted Teal #8AADF4 is approx HSL 209 81% 77%. Using Mocha Teal for more Catppuccin flavor. */
     --primary-foreground: var(--ctp-mocha-crust);
 
-    --secondary: var(--ctp-mocha-teal); 
+    --secondary: var(--ctp-mocha-blue); 
     --secondary-foreground: var(--ctp-mocha-crust);
 
     --muted: var(--ctp-mocha-surface1);
     --muted-foreground: var(--ctp-mocha-subtext0);
 
-    --accent: var(--ctp-mocha-red); /* PRD: Subtle Coral #F38BA8. Mocha Red is #f38ba8 */
+    --accent: var(--ctp-mocha-red); /* Subtle Coral #F38BA8 is Mocha Red */
     --accent-foreground: var(--ctp-mocha-crust);
 
-    --highlight: var(--ctp-mocha-peach);
+    --highlight: var(--ctp-mocha-peach); /* Using Peach for orangish highlight */
     --highlight-foreground: var(--ctp-mocha-crust);
 
-    --destructive: var(--ctp-mocha-red);
+    --destructive: var(--ctp-mocha-maroon); /* Using Maroon for a slightly deeper red */
     --destructive-foreground: var(--ctp-mocha-crust);
 
     --border: var(--ctp-mocha-surface2);
@@ -180,15 +180,15 @@ body {
     /* Advanced Glass Effect Variables (Dark Theme) */
     --glass-bg-base-rgb: 30, 30, 46; /* --ctp-mocha-base rgb */
     --glass-bg-opacity: 0.6; 
-    --glass-bg-hover-opacity: 0.7;
+    --glass-bg-hover-opacity: 0.75; /* Slightly more opaque on hover */
     --glass-bg-active-opacity: 0.5;
 
     --glass-text-rgb: var(--ctp-mocha-text);    
     --glass-border-rgb: 205, 214, 244; /* --ctp-mocha-text (whiteish for border) */
-    --glass-border-opacity: 0.1;
-
+    --glass-border-opacity: 0.1; /* Subtle border for dark glass */
+    
     --glass-shadow-base-rgb: 0, 0, 0;  /* Black for dark theme shadow base */
-    --glass-shadow-opacity: 0.3; 
+    --glass-shadow-opacity: 0.3; /* More pronounced shadow for depth */
     
     /* Dark theme glass colors */
     --glass-bg: rgba(var(--glass-bg-base-rgb), var(--glass-bg-opacity));
@@ -206,7 +206,7 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /* h-full is applied via class in RootLayout */
+    height: 100%; /* Ensure html takes full height */
   }
 
   * {

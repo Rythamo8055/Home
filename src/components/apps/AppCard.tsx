@@ -38,7 +38,7 @@ export function AppCard({ app, animationDelay }: AppCardProps) {
             className="transition-transform duration-500 group-hover:scale-105"
           />
         </div>
-        <CardTitle className="font-headline text-2xl text-primary">{app.name}</CardTitle>
+        <CardTitle className="font-headline text-xl md:text-2xl text-primary">{app.name}</CardTitle>
         <CardDescription className="text-foreground/80 font-medium">{app.tagline}</CardDescription>
       </CardHeader>
       <CardContent className="flex-grow">
