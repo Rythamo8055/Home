@@ -49,6 +49,10 @@ export default {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',
         },
+        highlight: {
+          DEFAULT: 'hsl(var(--highlight))',
+          foreground: 'hsl(var(--highlight-foreground))',
+        },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
@@ -75,27 +79,23 @@ export default {
         sm: 'calc(var(--radius) - 4px)', 
       },
       backgroundImage: {
-        // Updated to use CSS variables for themeable gradients
-        // Base is now --glass-bg-base-rgb and opacity is --glass-bg-opacity
-        // The gradient on cards can be more specific if needed.
         'glass-gradient': 'linear-gradient(135deg, rgba(var(--glass-bg-base-rgb), 0.7) 0%, rgba(var(--glass-bg-base-rgb), 0.3) 100%)',
+        'glass-gradient-dark': 'linear-gradient(135deg, rgba(30,30,46,0.7) 0%, rgba(30,30,46,0.4) 100%)', /* Explicit for AppCard */
+        'glass-gradient-light': 'linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 100%)', /* Explicit for AppCard */
       },
       boxShadow: {
-        // Using CSS variable for shadow color to make it themeable
-        // Example: 'shadow-md-glass': '0 4px 6px -1px rgba(var(--current-glass-shadow-base-rgb), var(--current-glass-shadow-opacity)), 0 2px 4px -2px rgba(var(--current-glass-shadow-base-rgb), calc(var(--current-glass-shadow-opacity) * 0.8))'
-        // Simpler for direct use for now:
         'glass-sm': '0 1px 3px 0 rgba(var(--current-glass-shadow-base-rgb), var(--current-glass-shadow-opacity))',
         'glass-md': '0 4px 8px 0 rgba(var(--current-glass-shadow-base-rgb), var(--current-glass-shadow-opacity))',
         'glass-lg': '0 10px 20px 0 rgba(var(--current-glass-shadow-base-rgb), var(--current-glass-shadow-opacity))',
         'glass-xl': '0 15px 30px 0 rgba(var(--current-glass-shadow-base-rgb), var(--current-glass-shadow-opacity))',
 
-        // Specific shadows from advanced prompt (Mocha example)
-        'shadow-sm-mocha': '0 1px 2px hsla(var(--ctp-mocha-overlay0), 0.2)', // overlay0 as shadow color
+        /* Catppuccin Mocha Shadows (dark theme) */
+        'shadow-sm-mocha': '0 1px 2px hsla(var(--ctp-mocha-overlay0), 0.2)', 
         'shadow-md-mocha': '0 4px 6px hsla(var(--ctp-mocha-overlay0), 0.3)',
         'shadow-lg-mocha': '0 10px 15px hsla(var(--ctp-mocha-overlay0), 0.4)',
         'shadow-xl-mocha': '0 20px 25px hsla(var(--ctp-mocha-overlay0), 0.4), 0 8px 10px hsla(var(--ctp-mocha-overlay0), 0.3)',
 
-        // For light theme, using a darker shadow
+        /* Catppuccin Latte Shadows (light theme) */
         'shadow-sm-latte': '0 1px 2px hsla(var(--ctp-latte-overlay0), 0.2)',
         'shadow-md-latte': '0 4px 6px hsla(var(--ctp-latte-overlay0), 0.3)',
         'shadow-lg-latte': '0 10px 15px hsla(var(--ctp-latte-overlay0), 0.4)',
@@ -103,7 +103,7 @@ export default {
       },
       backdropBlur: {
         '10': 'blur(10px)', 
-        'md': 'blur(10px)', // Consistent with advancedGlassEffect
+        'md': 'blur(10px)',
       },
       backdropSaturate: {
         '180': 'saturate(1.8)', 
@@ -139,9 +139,11 @@ export default {
         'fade-in': 'fade-in 0.5s ease-out',
       },
       transitionProperty: {
-        'shadow-transform-bg': 'box-shadow, transform, background-color, background',
+        'shadow-transform-bg': 'box-shadow, transform, background-color, background, backdrop-filter',
       }
     },
   },
   plugins: [require('tailwindcss-animate')],
 } satisfies Config;
+
+    

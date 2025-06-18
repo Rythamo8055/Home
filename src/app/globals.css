@@ -5,6 +5,9 @@
 
 body {
   font-family: 'Source Code Pro', monospace; /* Explicitly set from layout */
+  background-color: transparent; /* Explicitly set to transparent */
+  @apply text-foreground;
+  @apply min-h-screen transition-colors duration-300;
 }
 
 @layer base {
@@ -61,6 +64,9 @@ body {
     --accent: var(--ctp-latte-mauve); 
     --accent-foreground: var(--ctp-latte-base);
 
+    --highlight: var(--ctp-latte-peach);
+    --highlight-foreground: var(--ctp-latte-text);
+
     --destructive: var(--ctp-latte-red);
     --destructive-foreground: var(--ctp-latte-base);
 
@@ -78,25 +84,26 @@ body {
     --radius: 0.75rem;
 
     /* Advanced Glass Effect Variables (Light Theme) */
-    /* Lighter base for glass, slightly more opaque text for readability */
-    --glass-bg-base-rgb: 239, 241, 245; /* --ctp-latte-base */
-    --glass-bg-opacity: 0.6; /* Matches advancedGlassEffect.light (bg-white/60) */
+    --glass-bg-base-rgb: 255, 255, 255; /* Lighter base for glass (white) */
+    --glass-bg-opacity: 0.6; 
     --glass-bg-hover-opacity: 0.7;
     --glass-bg-active-opacity: 0.5;
 
-    --glass-text-rgb: 76, 79, 105;    /* --ctp-latte-text */
-    --glass-border-rgb: 205, 214, 244; /* --ctp-latte-text, but can be adjusted, using lavender for a hint of color */
-    --glass-border-opacity: 0.2; /* Matches border-white/20 from prompt */
+    --glass-text-rgb: var(--ctp-latte-text); 
+    --glass-border-rgb: 255, 255, 255; /* White border for light theme */
+    --glass-border-opacity: 0.2; 
     
-    --glass-shadow-base-rgb: 108, 112, 134; /* --ctp-latte-overlay0 (a bit darker for more presence) */
-    --glass-shadow-opacity: 0.1; /* shadow-lg shadow-white/10 -> more like black/10 for light theme */
+    --glass-shadow-base-rgb: 108, 112, 134; /* --ctp-latte-overlay0 (darker for shadow) */
+    --glass-shadow-opacity: 0.1;
 
 
     /* Light theme glass colors */
-    --glass-bg-light: rgba(var(--glass-bg-base-rgb), var(--glass-bg-opacity));
-    --glass-bg-hover-light: rgba(var(--glass-bg-base-rgb), var(--glass-bg-hover-opacity));
-    --glass-bg-active-light: rgba(var(--glass-bg-base-rgb), var(--glass-bg-active-opacity));
-    --glass-border-light: rgba(var(--glass-border-rgb), var(--glass-border-opacity));
+    --glass-bg: rgba(var(--glass-bg-base-rgb), var(--glass-bg-opacity));
+    --glass-bg-hover: rgba(var(--glass-bg-base-rgb), var(--glass-bg-hover-opacity));
+    --glass-bg-active: rgba(var(--glass-bg-base-rgb), var(--glass-bg-active-opacity));
+    --glass-border-color: rgba(var(--glass-border-rgb), var(--glass-border-opacity));
+    --current-glass-shadow-base-rgb: var(--glass-shadow-base-rgb); /* Used by Tailwind config */
+    --current-glass-shadow-opacity: var(--glass-shadow-opacity); /* Used by Tailwind config */
   }
 
   .dark {
@@ -132,7 +139,7 @@ body {
 
 
     /* Dark Theme (Mocha) Overrides - More Colorful */
-    --background: var(--ctp-mocha-base);
+    --background: var(--ctp-mocha-base); /* PRD: #302D41 (desaturated tan) -> using Mocha Base for now */
     --foreground: var(--ctp-mocha-text);
 
     --card: var(--ctp-mocha-surface0);
@@ -141,7 +148,7 @@ body {
     --popover: var(--ctp-mocha-mantle);
     --popover-foreground: var(--ctp-mocha-text);
 
-    --primary: var(--ctp-mocha-blue); 
+    --primary: var(--ctp-mocha-blue); /* PRD: Muted Teal #8AADF4. Mocha Blue is #89b4fa */
     --primary-foreground: var(--ctp-mocha-crust);
 
     --secondary: var(--ctp-mocha-teal); 
@@ -150,8 +157,11 @@ body {
     --muted: var(--ctp-mocha-surface1);
     --muted-foreground: var(--ctp-mocha-subtext0);
 
-    --accent: var(--ctp-mocha-mauve); 
+    --accent: var(--ctp-mocha-red); /* PRD: Subtle Coral #F38BA8. Mocha Red is #f38ba8 */
     --accent-foreground: var(--ctp-mocha-crust);
+
+    --highlight: var(--ctp-mocha-peach);
+    --highlight-foreground: var(--ctp-mocha-crust);
 
     --destructive: var(--ctp-mocha-red);
     --destructive-foreground: var(--ctp-mocha-crust);
@@ -168,43 +178,25 @@ body {
     --chart-5: var(--ctp-mocha-mauve);
 
     /* Advanced Glass Effect Variables (Dark Theme) */
-    /* Using Crust as a darker base for glass, white text for contrast */
-    --glass-bg-base-rgb: 17, 17, 27; /* --ctp-mocha-crust */
-    --glass-bg-opacity: 0.6; /* Matches advancedGlassEffect.dark (bg-black/60) */
+    --glass-bg-base-rgb: 30, 30, 46; /* --ctp-mocha-base rgb */
+    --glass-bg-opacity: 0.6; 
     --glass-bg-hover-opacity: 0.7;
     --glass-bg-active-opacity: 0.5;
 
-    --glass-text-rgb: 205, 214, 244;      /* --ctp-mocha-text */
-    --glass-border-rgb: 205, 214, 244; /* --ctp-mocha-text (whiteish) */
-    --glass-border-opacity: 0.1; /* Matches border-white/10 from prompt */
+    --glass-text-rgb: var(--ctp-mocha-text);    
+    --glass-border-rgb: 205, 214, 244; /* --ctp-mocha-text (whiteish for border) */
+    --glass-border-opacity: 0.1;
 
     --glass-shadow-base-rgb: 0, 0, 0;  /* Black for dark theme shadow base */
-    --glass-shadow-opacity: 0.3; /* shadow-lg shadow-black/30 */
+    --glass-shadow-opacity: 0.3; 
     
     /* Dark theme glass colors */
-    --glass-bg-dark: rgba(var(--glass-bg-base-rgb), var(--glass-bg-opacity));
-    --glass-bg-hover-dark: rgba(var(--glass-bg-base-rgb), var(--glass-bg-hover-opacity));
-    --glass-bg-active-dark: rgba(var(--glass-bg-base-rgb), var(--glass-bg-active-opacity));
-    --glass-border-dark: rgba(var(--glass-border-rgb), var(--glass-border-opacity));
-  }
-
-  /* Shared glass variables that pick from light/dark specifics */
-  /* These ensure that the correct theme's glass variables are used */
-  :root { /* Light theme defaults for glass */
-    --glass-bg: var(--glass-bg-light);
-    --glass-bg-hover: var(--glass-bg-hover-light);
-    --glass-bg-active: var(--glass-bg-active-light);
-    --glass-border-color: var(--glass-border-light);
-    --current-glass-shadow-base-rgb: var(--glass-shadow-base-rgb);
-    --current-glass-shadow-opacity: var(--glass-shadow-opacity);
-  }
-  .dark { /* Dark theme overrides for glass */
-    --glass-bg: var(--glass-bg-dark);
-    --glass-bg-hover: var(--glass-bg-hover-dark);
-    --glass-bg-active: var(--glass-bg-active-dark);
-    --glass-border-color: var(--glass-border-dark);
-    --current-glass-shadow-base-rgb: var(--glass-shadow-dark-base-rgb);
-    --current-glass-shadow-opacity: var(--glass-shadow-opacity);
+    --glass-bg: rgba(var(--glass-bg-base-rgb), var(--glass-bg-opacity));
+    --glass-bg-hover: rgba(var(--glass-bg-base-rgb), var(--glass-bg-hover-opacity));
+    --glass-bg-active: rgba(var(--glass-bg-base-rgb), var(--glass-bg-active-opacity));
+    --glass-border-color: rgba(var(--glass-border-rgb), var(--glass-border-opacity));
+    --current-glass-shadow-base-rgb: var(--glass-shadow-base-rgb); /* Used by Tailwind config */
+    --current-glass-shadow-opacity: var(--glass-shadow-opacity); /* Used by Tailwind config */
   }
   
   /* Global background image for the HTML element */
@@ -220,12 +212,6 @@ body {
   * {
     @apply border-border;
   }
-  body {
-    /* Removed bg-background to make body transparent */
-    @apply text-foreground;
-    @apply min-h-screen transition-colors duration-300;
-    background-color: transparent; /* Explicitly set to transparent */
-  }
 }
 
 /* Custom utility for glass text (example, if needed more widely) */
@@ -235,3 +221,5 @@ body {
 .dark .text-glass-foreground {
   color: rgba(var(--glass-text-rgb), 0.95); /* Slightly brighter for dark mode */
 }
+
+    
