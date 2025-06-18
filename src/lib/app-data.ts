@@ -249,7 +249,7 @@ The app emphasizes browser-based functionality, meaning all sounds are generated
     id: 'morse-mentor',
     name: 'Morse Mentor',
     tagline: 'Interactive Morse Code Learning Platform.',
-    url: '/morse-mentor', // Example URL, replace if it has a live deployment
+    url: 'https://morsecode.pages.dev/',
     imageUrl: 'https://cdn.pixabay.com/photo/2025/05/18/14/05/congratulations-9607355_1280.png',
     imageHint: 'morse code',
     description: 'An interactive web app to learn and master Morse code with lessons, quizzes, and progress tracking.',
