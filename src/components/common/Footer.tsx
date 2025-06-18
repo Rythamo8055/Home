@@ -1,0 +1,15 @@
+export function Footer() {
+  const currentYear = new Date().getFullYear();
+  return (
+    <footer className="mt-auto border-t border-border/40 py-8 text-center text-sm text-muted-foreground">
+      <div className="container">
+        <p>
+          &copy; {currentYear} PortfolioPulse. All rights reserved.
+        </p>
+        <p className="mt-1">
+          Crafted with Next.js, Tailwind CSS, and Genkit AI.
+        </p>
+      </div>
+    </footer>
+  );
+}

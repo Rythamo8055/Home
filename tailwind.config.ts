@@ -1,18 +1,25 @@
 import type {Config} from 'tailwindcss';
 
 export default {
-  darkMode: ['class'],
+  darkMode: ['class'], // Keeping this in case a toggle is added later, though current theme is dark by default
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
-        code: ['monospace'],
+        body: ['Source Code Pro', 'monospace'],
+        headline: ['Source Code Pro', 'monospace'],
+        code: ['Source Code Pro', 'monospace'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -55,7 +62,7 @@ export default {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
-        sidebar: {
+        sidebar: { // Keeping sidebar for potential future use or if ShadCN internal components use it.
           DEFAULT: 'hsl(var(--sidebar-background))',
           foreground: 'hsl(var(--sidebar-foreground))',
           primary: 'hsl(var(--sidebar-primary))',
@@ -65,6 +72,9 @@ export default {
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))',
         },
+        // Custom for liquid glass
+        'glass-bg': 'hsla(var(--glass-bg), 1)',
+        'glass-border': 'hsla(var(--glass-border), 1)',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -88,11 +98,29 @@ export default {
             height: '0',
           },
         },
+        'subtle-pulse': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '.7' },
+        },
+        'slide-in-up': {
+          'from': { transform: 'translateY(100%)', opacity: '0' },
+          'to': { transform: 'translateY(0)', opacity: '1' },
+        },
+        'fade-in': {
+          'from': { opacity: '0' },
+          'to': { opacity: '1' },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'subtle-pulse': 'subtle-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'slide-in-up': 'slide-in-up 0.5s ease-out',
+        'fade-in': 'fade-in 0.5s ease-out',
       },
+      boxShadow: {
+        'glass': '0 8px 32px 0 hsla(var(--glass-bg) / 0.37)', // A shadow for the glass effect
+      }
     },
   },
   plugins: [require('tailwindcss-animate')],
