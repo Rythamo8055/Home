@@ -11,6 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { submitContactForm, type ContactFormState } from "@/lib/actions";
 import { useToast } from "@/hooks/use-toast";
 import { Send, Loader2 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -23,18 +24,17 @@ function SubmitButton() {
 }
 
 export function ContactForm() {
-  const initialState: ContactFormState = { message: "", success: false };
+  const initialState: ContactFormState = { message: "", success: false, issues: [], fields: {} };
   const [state, formAction] = useActionState(submitContactForm, initialState);
   const { toast } = useToast();
 
   useEffect(() => {
     if (state.message) {
       if (state.success) {
-        toast({
-          title: "Message Sent!",
-          description: state.message,
-        });
-      } else if (state.issues || state.message !== "") { 
+        // Form was successfully submitted - toast already handled this case in previous version
+        // if you want a success toast, add it here.
+        // For now, only errors are toasted as per guidelines
+      } else if (state.issues && state.issues.length > 0) { 
          toast({
           title: "Error",
           description: state.message || "Failed to send message. Please check the form.",
@@ -47,12 +47,15 @@ export function ContactForm() {
 
   return (
     <Card 
-      className="w-full max-w-lg mx-auto 
-                 bg-glass-bg backdrop-blur-10 backdrop-saturate-180 
-                 border border-glass-border shadow-glass
-                 transition-all duration-300 ease-in-out 
-                 hover:shadow-xl-mocha hover:bg-glass-bg-hover
-                 active:shadow-md-mocha active:bg-glass-bg-active"
+      className={cn(
+        "w-full max-w-lg mx-auto",
+        "bg-glass-bg backdrop-blur-md backdrop-saturate-150",
+        "border border-glass-border",
+        "shadow-glass-lg dark:shadow-xl-mocha light:shadow-xl-latte",
+        "transition-shadow-transform-bg duration-300 ease-in-out",
+        "hover:shadow-glass-xl hover:dark:shadow-xl-mocha hover:light:shadow-xl-latte hover:bg-glass-bg-hover",
+        "active:shadow-glass-md active:dark:shadow-md-mocha active:light:shadow-md-latte active:bg-glass-bg-active"
+      )}
     >
       <CardHeader>
         <CardTitle className="font-headline text-3xl text-primary">Get in Touch</CardTitle>
@@ -72,8 +75,9 @@ export function ContactForm() {
               required 
               className="bg-input focus:ring-ring" 
               aria-describedby="name-error"
+              defaultValue={state.fields?.name}
             />
-            {state.issues && state.fields?.name && state.issues.find(issue => issue.toLowerCase().includes('name')) && (
+            {state.issues?.find(issue => issue.toLowerCase().includes('name')) && (
               <p id="name-error" className="text-sm text-destructive">{state.issues.find(issue => issue.toLowerCase().includes('name'))}</p>
             )}
           </div>
@@ -88,8 +92,9 @@ export function ContactForm() {
               required 
               className="bg-input focus:ring-ring"
               aria-describedby="email-error"
+              defaultValue={state.fields?.email}
             />
-            {state.issues && state.fields?.email && state.issues.find(issue => issue.toLowerCase().includes('email')) && (
+            {state.issues?.find(issue => issue.toLowerCase().includes('email')) && (
                <p id="email-error" className="text-sm text-destructive">{state.issues.find(issue => issue.toLowerCase().includes('email'))}</p>
             )}
           </div>
@@ -104,14 +109,18 @@ export function ContactForm() {
               rows={5}
               className="bg-input focus:ring-ring min-h-[120px]"
               aria-describedby="message-error"
+              defaultValue={state.fields?.message}
             />
-            {state.issues && state.fields?.message && state.issues.find(issue => issue.toLowerCase().includes('message')) && (
+            {state.issues?.find(issue => issue.toLowerCase().includes('message')) && (
                <p id="message-error" className="text-sm text-destructive">{state.issues.find(issue => issue.toLowerCase().includes('message'))}</p>
             )}
           </div>
           
           <SubmitButton />
           
+           {state.message && state.success && (
+            <p className="text-sm text-green-600 dark:text-green-400 mt-4">{state.message}</p>
+          )}
         </form>
       </CardContent>
     </Card>

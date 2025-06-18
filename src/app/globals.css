@@ -9,7 +9,7 @@ body {
 
 @layer base {
   :root {
-    /* Catppuccin Latte Palette (Light Theme) */
+    /* Catppuccin Latte Palette (Light Theme) - More Colorful */
     --ctp-latte-rosewater: 0 75% 88%; /* #f5e0dc */
     --ctp-latte-flamingo: 0 70% 84%; /* #f2cdcd */
     --ctp-latte-pink: 326 73% 86%;    /* #f5c2e7 */
@@ -49,7 +49,7 @@ body {
     --popover: var(--ctp-latte-mantle);
     --popover-foreground: var(--ctp-latte-text);
 
-    --primary: var(--ctp-latte-pink); /* More colorful primary for light */
+    --primary: var(--ctp-latte-blue); 
     --primary-foreground: var(--ctp-latte-crust); 
 
     --secondary: var(--ctp-latte-teal); 
@@ -78,44 +78,53 @@ body {
     --radius: 0.75rem;
 
     /* Advanced Glass Effect Variables (Light Theme) */
-    --glass-bg-base-rgb: 239, 241, 245; /* Corresponds to --ctp-latte-base */
-    --glass-text-rgb: 76, 79, 105;    /* Corresponds to --ctp-latte-text */
-    --glass-shadow-color-rgb: 108, 112, 134; /* Corresponds to ctp-latte-overlay0 for subtle shadow */
+    /* Lighter base for glass, slightly more opaque text for readability */
+    --glass-bg-base-rgb: 239, 241, 245; /* --ctp-latte-base */
+    --glass-bg-opacity: 0.6; /* Matches advancedGlassEffect.light (bg-white/60) */
+    --glass-bg-hover-opacity: 0.7;
+    --glass-bg-active-opacity: 0.5;
 
-    --glass-bg-light: rgba(var(--glass-bg-base-rgb), 0.65); /* Base opacity for light glass */
-    --glass-bg-hover-light: rgba(var(--glass-bg-base-rgb), 0.75); /* Hover state */
-    --glass-bg-active-light: rgba(var(--glass-bg-base-rgb), 0.55); /* Active state */
-    --glass-border-light: rgba(var(--glass-text-rgb), 0.15); /* Border color */
-    --glass-shadow-light-base-rgb: var(--glass-shadow-color-rgb); /* Shadow base */
+    --glass-text-rgb: 76, 79, 105;    /* --ctp-latte-text */
+    --glass-border-rgb: 205, 214, 244; /* --ctp-latte-text, but can be adjusted, using lavender for a hint of color */
+    --glass-border-opacity: 0.2; /* Matches border-white/20 from prompt */
+    
+    --glass-shadow-base-rgb: 108, 112, 134; /* --ctp-latte-overlay0 (a bit darker for more presence) */
+    --glass-shadow-opacity: 0.1; /* shadow-lg shadow-white/10 -> more like black/10 for light theme */
 
+
+    /* Light theme glass colors */
+    --glass-bg-light: rgba(var(--glass-bg-base-rgb), var(--glass-bg-opacity));
+    --glass-bg-hover-light: rgba(var(--glass-bg-base-rgb), var(--glass-bg-hover-opacity));
+    --glass-bg-active-light: rgba(var(--glass-bg-base-rgb), var(--glass-bg-active-opacity));
+    --glass-border-light: rgba(var(--glass-border-rgb), var(--glass-border-opacity));
   }
 
   .dark {
     /* Catppuccin Mocha Palette (Dark Theme) - More Colorful */
-    --ctp-mocha-rosewater: 347 79% 88%; 
-    --ctp-mocha-flamingo: 0 70% 84%; 
-    --ctp-mocha-pink: 326 73% 86%;    
-    --ctp-mocha-mauve: 267 84% 84%;   
-    --ctp-mocha-red: 346 84% 74%;     
-    --ctp-mocha-maroon: 346 72% 69%;  
-    --ctp-mocha-peach: 22 92% 75%;    
-    --ctp-mocha-yellow: 43 89% 83%;   
-    --ctp-mocha-green: 115 54% 76%;   
-    --ctp-mocha-teal: 170 59% 73%;    
-    --ctp-mocha-sky: 193 83% 79%;     
-    --ctp-mocha-sapphire: 217 84% 79%;
-    --ctp-mocha-blue: 217 91% 76%;    
-    --ctp-mocha-lavender: 236 72% 83%;
+    --ctp-mocha-rosewater: 347 79% 88%; /* #f2d5cf */
+    --ctp-mocha-flamingo: 0 70% 84%; /* #f0c6c6 */
+    --ctp-mocha-pink: 326 73% 86%;    /* #f5c2e7 */
+    --ctp-mocha-mauve: 267 84% 84%;   /* #cba6f7 */
+    --ctp-mocha-red: 346 84% 74%;     /* #f38ba8 */
+    --ctp-mocha-maroon: 346 72% 69%;  /* #ea999c */
+    --ctp-mocha-peach: 22 92% 75%;    /* #fab387 */
+    --ctp-mocha-yellow: 43 89% 83%;   /* #f9e2af */
+    --ctp-mocha-green: 115 54% 76%;   /* #a6e3a1 */
+    --ctp-mocha-teal: 170 59% 73%;    /* #94e2d5 */
+    --ctp-mocha-sky: 193 83% 79%;     /* #89dceb */
+    --ctp-mocha-sapphire: 217 84% 79%;/* #74c7ec */
+    --ctp-mocha-blue: 217 91% 76%;    /* #89b4fa */
+    --ctp-mocha-lavender: 236 72% 83%;/* #b4befe */
 
-    --ctp-mocha-text: 225 47% 88%;        
-    --ctp-mocha-subtext1: 225 24% 78%;    
-    --ctp-mocha-subtext0: 226 17% 68%;    
-    --ctp-mocha-overlay2: 227 12% 57%;   
-    --ctp-mocha-overlay1: 228 10% 47%;   
-    --ctp-mocha-overlay0: 229 9% 37%;    
-    --ctp-mocha-surface2: 229 9% 27%;    
-    --ctp-mocha-surface1: 230 9% 21%;   
-    --ctp-mocha-surface0: 236 11% 16%;   
+    --ctp-mocha-text: 225 47% 88%;        /* #cad3f5 */
+    --ctp-mocha-subtext1: 225 24% 78%;    /* #b8c0e0 */
+    --ctp-mocha-subtext0: 226 17% 68%;    /* #a5adce */
+    --ctp-mocha-overlay2: 227 12% 57%;   /* #939ab7 */
+    --ctp-mocha-overlay1: 228 10% 47%;   /* #8087a2 */
+    --ctp-mocha-overlay0: 229 9% 37%;    /* #6e738d */
+    --ctp-mocha-surface2: 229 9% 27%;    /* #5b6078 */
+    --ctp-mocha-surface1: 230 9% 21%;   /* #494d64 */
+    --ctp-mocha-surface0: 236 11% 16%;   /* #363a4f */
     
     --ctp-mocha-base: 240 13% 12%; /* #1e1e2e */
     --ctp-mocha-mantle: 240 13% 10%; /* #181825 */
@@ -132,7 +141,7 @@ body {
     --popover: var(--ctp-mocha-mantle);
     --popover-foreground: var(--ctp-mocha-text);
 
-    --primary: var(--ctp-mocha-pink); /* More colorful primary */
+    --primary: var(--ctp-mocha-blue); 
     --primary-foreground: var(--ctp-mocha-crust);
 
     --secondary: var(--ctp-mocha-teal); 
@@ -159,15 +168,24 @@ body {
     --chart-5: var(--ctp-mocha-mauve);
 
     /* Advanced Glass Effect Variables (Dark Theme) */
-    --glass-bg-base-rgb: 17, 17, 27;      /* Corresponds to --ctp-mocha-crust for a darker glass */
-    --glass-text-rgb: 205, 214, 244;      /* Corresponds to --ctp-mocha-text */
-    --glass-shadow-color-rgb: 0, 0, 0;  /* Black for dark theme shadow base */
+    /* Using Crust as a darker base for glass, white text for contrast */
+    --glass-bg-base-rgb: 17, 17, 27; /* --ctp-mocha-crust */
+    --glass-bg-opacity: 0.6; /* Matches advancedGlassEffect.dark (bg-black/60) */
+    --glass-bg-hover-opacity: 0.7;
+    --glass-bg-active-opacity: 0.5;
 
-    --glass-bg-dark: rgba(var(--glass-bg-base-rgb), 0.5); /* Base opacity for dark glass */
-    --glass-bg-hover-dark: rgba(var(--glass-bg-base-rgb), 0.6); /* Hover state */
-    --glass-bg-active-dark: rgba(var(--glass-bg-base-rgb), 0.4); /* Active state */
-    --glass-border-dark: rgba(var(--glass-text-rgb), 0.08); /* Border color, more subtle */
-    --glass-shadow-dark-base-rgb: var(--glass-shadow-color-rgb); /* Shadow base */
+    --glass-text-rgb: 205, 214, 244;      /* --ctp-mocha-text */
+    --glass-border-rgb: 205, 214, 244; /* --ctp-mocha-text (whiteish) */
+    --glass-border-opacity: 0.1; /* Matches border-white/10 from prompt */
+
+    --glass-shadow-base-rgb: 0, 0, 0;  /* Black for dark theme shadow base */
+    --glass-shadow-opacity: 0.3; /* shadow-lg shadow-black/30 */
+    
+    /* Dark theme glass colors */
+    --glass-bg-dark: rgba(var(--glass-bg-base-rgb), var(--glass-bg-opacity));
+    --glass-bg-hover-dark: rgba(var(--glass-bg-base-rgb), var(--glass-bg-hover-opacity));
+    --glass-bg-active-dark: rgba(var(--glass-bg-base-rgb), var(--glass-bg-active-opacity));
+    --glass-border-dark: rgba(var(--glass-border-rgb), var(--glass-border-opacity));
   }
 
   /* Shared glass variables that pick from light/dark specifics */
@@ -177,14 +195,16 @@ body {
     --glass-bg-hover: var(--glass-bg-hover-light);
     --glass-bg-active: var(--glass-bg-active-light);
     --glass-border-color: var(--glass-border-light);
-    --glass-shadow-base-rgb: var(--glass-shadow-light-base-rgb);
+    --current-glass-shadow-base-rgb: var(--glass-shadow-base-rgb);
+    --current-glass-shadow-opacity: var(--glass-shadow-opacity);
   }
   .dark { /* Dark theme overrides for glass */
     --glass-bg: var(--glass-bg-dark);
     --glass-bg-hover: var(--glass-bg-hover-dark);
     --glass-bg-active: var(--glass-bg-active-dark);
     --glass-border-color: var(--glass-border-dark);
-    --glass-shadow-base-rgb: var(--glass-shadow-dark-base-rgb);
+    --current-glass-shadow-base-rgb: var(--glass-shadow-dark-base-rgb);
+    --current-glass-shadow-opacity: var(--glass-shadow-opacity);
   }
   
   /* Global background image for the HTML element */
@@ -201,8 +221,17 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    /* Removed bg-background to make body transparent */
+    @apply text-foreground;
     @apply min-h-screen transition-colors duration-300;
+    background-color: transparent; /* Explicitly set to transparent */
   }
 }
 
+/* Custom utility for glass text (example, if needed more widely) */
+.text-glass-foreground {
+  color: rgba(var(--glass-text-rgb), 0.9); /* High contrast text for glass */
+}
+.dark .text-glass-foreground {
+  color: rgba(var(--glass-text-rgb), 0.95); /* Slightly brighter for dark mode */
+}
