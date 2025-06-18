@@ -201,17 +201,19 @@ body {
   
   /* Global background image for the HTML element */
   html {
-    background-image: url('https://raw.githubusercontent.com/linuxdotexe/nordic-wallpapers/master/dynamic-wallpapers/AnimeRoomBoard/ign_AnimeRoomBoard-2.jpg');
+    /* Mobile-first: Robots image, scrolling */
+    background-image: url('https://raw.githubusercontent.com/linuxdotexe/nordic-wallpapers/master/wallpapers/ign_robots.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    /* Default attachment is scroll, better for mobile */
+    /* background-attachment is 'scroll' by default */
     height: 100%; /* Ensure html takes full height */
   }
 
-  /* Apply fixed attachment for larger screens (e.g., md and up) */
+  /* Apply fixed attachment and different image for larger screens (e.g., md and up) */
   @media (min-width: 768px) { /* Tailwind's 'md' breakpoint */
     html {
+      background-image: url('https://raw.githubusercontent.com/linuxdotexe/nordic-wallpapers/master/dynamic-wallpapers/AnimeRoomBoard/ign_AnimeRoomBoard-2.jpg');
       background-attachment: fixed;
     }
   }
@@ -231,4 +233,5 @@ body {
     
  
     
+
 
