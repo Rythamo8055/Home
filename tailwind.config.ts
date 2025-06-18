@@ -2,7 +2,7 @@
 import type {Config} from 'tailwindcss';
 
 export default {
-  darkMode: ['class'],
+  darkMode: 'class', // Changed from ['class'] to 'class' for simplicity with ThemeProvider
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -75,23 +75,22 @@ export default {
         sm: 'calc(var(--radius) - 4px)', // 8px
       },
       backgroundImage: {
-        'glass-gradient': 'linear-gradient(135deg, rgba(30,30,46,0.7) 0%, rgba(30,30,46,0.3) 100%)', // Using Mocha Base (1e1e2e) with varying opacity
+        // Updated to use CSS variables for themeable gradients
+        'glass-gradient': 'linear-gradient(135deg, rgba(var(--glass-bg-base-rgb), 0.4) 0%, rgba(var(--glass-bg-base-rgb), 0.2) 100%)',
       },
       boxShadow: {
-        // Based on advancedThemeConfig.mocha.shadows and advancedGlassEffect.dark.shadow
-        'sm-mocha': '0 1px 2px 0 rgba(0,0,0,0.2)',
-        'md-mocha': '0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -2px rgba(0,0,0,0.3)',
-        'lg-mocha': '0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.4)', // General purpose large shadow
-        'xl-mocha': '0 20px 25px -5px rgba(0,0,0,0.4), 0 8px 10px -6px rgba(0,0,0,0.4)', // For hover states on glass
-        
-        // Specific shadow for glass elements from advancedGlassEffect.dark.shadow (shadow-lg shadow-black/30)
-        'glass': '0 10px 15px -3px rgba(0,0,0,0.3), 0 4px 6px -2px rgba(0,0,0,0.3)',
+        // Using CSS variable for shadow color to make it themeable
+        'sm-themed': '0 1px 2px 0 rgba(var(--glass-shadow-color-rgb), 0.2)',
+        'md-themed': '0 4px 6px -1px rgba(var(--glass-shadow-color-rgb), 0.3), 0 2px 4px -2px rgba(var(--glass-shadow-color-rgb), 0.3)',
+        'lg-themed': '0 10px 15px -3px rgba(var(--glass-shadow-color-rgb), 0.3), 0 4px 6px -2px rgba(var(--glass-shadow-color-rgb), 0.3)',
+        'xl-themed': '0 20px 25px -5px rgba(var(--glass-shadow-color-rgb), 0.3), 0 8px 10px -6px rgba(var(--glass-shadow-color-rgb), 0.3)',
+        'glass': '0 10px 15px -3px rgba(var(--glass-shadow-color-rgb), 0.3), 0 4px 6px -2px rgba(var(--glass-shadow-color-rgb), 0.3)',
       },
       backdropBlur: {
-        '10': 'blur(10px)',
+        '10': 'blur(10px)', // Standardized blur
       },
       backdropSaturate: {
-        '180': 'saturate(1.8)',
+        '180': 'saturate(1.8)', // Standardized saturate
       },
       keyframes: {
         'accordion-down': {

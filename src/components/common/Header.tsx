@@ -2,9 +2,10 @@
 "use client";
 
 import Link from "next/link";
-import { Code2 } from "lucide-react"; // Using Code2 as a generic tech/portfolio icon
+import { Code2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { ThemeToggleButton } from "./ThemeToggleButton";
 
 export function Header() {
   const pathname = usePathname();
@@ -21,22 +22,25 @@ export function Header() {
           <Code2 className="h-7 w-7" />
           <span className="font-headline text-xl font-bold">PortfolioPulse</span>
         </Link>
-        <nav className="flex items-center space-x-2 md:space-x-4">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "text-sm font-medium transition-all duration-150 ease-in-out px-4 py-2 rounded-[0.375rem]",
-                pathname === item.href
-                  ? "bg-primary text-primary-foreground"
-                  : "text-foreground/70 hover:bg-muted hover:text-foreground"
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex items-center space-x-2 md:space-x-4">
+          <nav className="flex items-center space-x-1 md:space-x-2">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "text-sm font-medium transition-all duration-150 ease-in-out px-3 py-1.5 rounded-[0.375rem]",
+                  pathname === item.href
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground/70 hover:bg-muted hover:text-foreground"
+                )}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <ThemeToggleButton />
+        </div>
       </div>
     </header>
   );
