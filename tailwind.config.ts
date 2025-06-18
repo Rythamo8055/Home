@@ -73,8 +73,8 @@ export default {
           ring: 'hsl(var(--sidebar-ring))',
         },
         // Custom for liquid glass
-        'glass-bg': 'hsla(var(--glass-bg), 1)',
-        'glass-border': 'hsla(var(--glass-border), 1)',
+        'glass-bg': 'var(--glass-bg)', // Updated to use CSS variable directly
+        'glass-border': 'var(--glass-border-color)', // Updated to use CSS variable for color
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -119,7 +119,9 @@ export default {
         'fade-in': 'fade-in 0.5s ease-out',
       },
       boxShadow: {
-        'glass': '0 8px 32px 0 hsla(var(--glass-bg) / 0.37)', // A shadow for the glass effect
+        // Updated shadow to align with prompt's: 0 4px 12px rgba(shadow-rgb, 0.1)
+        // Using black as shadow color (0 0% 0%) with 0.1 alpha
+        'glass': '0 4px 12px 0 hsla(0, 0%, 0%, 0.1)', 
       }
     },
   },

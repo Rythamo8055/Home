@@ -49,7 +49,7 @@ export function ContactForm() {
 
 
   return (
-    <Card className="w-full max-w-lg mx-auto bg-glass-bg backdrop-blur-md border-glass-border shadow-glass">
+    <Card className="w-full max-w-lg mx-auto bg-glass-bg backdrop-blur-md backdrop-saturate-150 border-glass-border shadow-glass">
       <CardHeader>
         <CardTitle className="font-headline text-3xl text-primary">Get in Touch</CardTitle>
         <CardDescription className="text-foreground/80">

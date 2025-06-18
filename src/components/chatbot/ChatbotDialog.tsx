@@ -80,7 +80,7 @@ export function ChatbotDialog({ isOpen, onOpenChange }: ChatbotDialogProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px] md:max-w-[550px] lg:max-w-[650px] p-0 flex flex-col h-[70vh] max-h-[600px] bg-glass-bg border-glass-border shadow-glass backdrop-blur-lg">
+      <DialogContent className="sm:max-w-[425px] md:max-w-[550px] lg:max-w-[650px] p-0 flex flex-col h-[70vh] max-h-[600px] bg-glass-bg border-glass-border shadow-glass backdrop-blur-md backdrop-saturate-150">
         <DialogHeader className="p-6 pb-2 border-b border-border/40">
           <DialogTitle className="font-headline text-primary flex items-center">
             <Bot className="h-6 w-6 mr-2 text-primary" /> Portfolio AI Assistant

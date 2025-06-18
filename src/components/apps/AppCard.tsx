@@ -14,11 +14,11 @@ interface AppCardProps {
 export function AppCard({ app, animationDelay }: AppCardProps) {
   return (
     <Card 
-      className="flex flex-col h-full bg-glass-bg backdrop-blur-md border-glass-border shadow-glass transition-all duration-300 hover:shadow-xl hover:border-primary/50 animate-fade-in"
+      className="flex flex-col h-full bg-glass-bg backdrop-blur-md backdrop-saturate-150 border-glass-border shadow-glass transition-all duration-300 hover:shadow-xl hover:border-primary/50 animate-fade-in"
       style={{ animationDelay }}
     >
       <CardHeader>
-        <div className="relative w-full h-48 rounded-t-lg overflow-hidden mb-4">
+        <div className="relative w-full h-48 rounded-t-lg overflow-hidden mb-4 group">
           <Image
             src={app.imageUrl}
             alt={`${app.name} screenshot`}

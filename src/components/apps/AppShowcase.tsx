@@ -14,7 +14,7 @@ export function AppShowcase() {
         </p>
       </div>
       {appsData.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8">
           {appsData.map((app, index) => (
             <AppCard key={app.id} app={app} animationDelay={`${index * 150}ms`} />
           ))}

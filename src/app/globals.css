@@ -44,9 +44,14 @@ body {
 
     --radius: 0.75rem; /* Slightly more rounded for liquid glass feel */
 
-    /* Custom variables for liquid glass effect */
-    --glass-bg: 237 12% 18% / 0.6; /* Similar to card, but with alpha for translucency */
-    --glass-border: 231 12% 28% / 0.8; 
+    /* Custom variables for liquid glass effect, aligned with Adaptive Design Prompt */
+    /* Using --card (Surface0) as the base for glass background color */
+    /* Using --border (Overlay0) as the base for glass border color */
+    --glass-bg-hsl: var(--card); /* HSL values of card */
+    --glass-border-hsl: var(--border); /* HSL values of border */
+    
+    --glass-bg: hsla(var(--glass-bg-hsl) / 0.5); /* Prompt: rgba(var(--md-sys-color-surface-rgb), 0.5) */
+    --glass-border-color: hsla(var(--glass-border-hsl) / 0.2); /* Prompt: rgba(var(--md-sys-color-outline-rgb), 0.1), using slightly higher alpha for visibility */
   }
 
   /* No .dark class needed as this is the default theme */
