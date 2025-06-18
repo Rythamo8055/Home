@@ -85,13 +85,13 @@ body {
 
     /* Advanced Glass Effect Variables (Light Theme) */
     --glass-bg-base-rgb: 255, 255, 255; /* Lighter base for glass (white) */
-    --glass-bg-opacity: 0.6; 
-    --glass-bg-hover-opacity: 0.7;
-    --glass-bg-active-opacity: 0.5;
+    --glass-bg-opacity: 0.85; 
+    --glass-bg-hover-opacity: 0.9;
+    --glass-bg-active-opacity: 0.8;
 
     --glass-text-rgb: var(--ctp-latte-text); 
-    --glass-border-rgb: 255, 255, 255; /* White border for light theme */
-    --glass-border-opacity: 0.2; 
+    --glass-border-rgb: 220, 38%, 97%; /* --ctp-latte-base (very light grey border) */
+    --glass-border-opacity: 0.3; 
     
     --glass-shadow-base-rgb: 108, 112, 134; /* --ctp-latte-overlay0 (darker for shadow) */
     --glass-shadow-opacity: 0.1;
@@ -148,7 +148,7 @@ body {
     --popover: var(--ctp-mocha-mantle);
     --popover-foreground: var(--ctp-mocha-text);
 
-    --primary: var(--ctp-mocha-teal); /* Muted Teal #8AADF4 is approx HSL 209 81% 77%. Using Mocha Teal for more Catppuccin flavor. */
+    --primary: var(--ctp-mocha-teal); 
     --primary-foreground: var(--ctp-mocha-crust);
 
     --secondary: var(--ctp-mocha-blue); 
@@ -157,13 +157,13 @@ body {
     --muted: var(--ctp-mocha-surface1);
     --muted-foreground: var(--ctp-mocha-subtext0);
 
-    --accent: var(--ctp-mocha-red); /* Subtle Coral #F38BA8 is Mocha Red */
+    --accent: var(--ctp-mocha-red); 
     --accent-foreground: var(--ctp-mocha-crust);
 
-    --highlight: var(--ctp-mocha-peach); /* Using Peach for orangish highlight */
+    --highlight: var(--ctp-mocha-peach); 
     --highlight-foreground: var(--ctp-mocha-crust);
 
-    --destructive: var(--ctp-mocha-maroon); /* Using Maroon for a slightly deeper red */
+    --destructive: var(--ctp-mocha-maroon); 
     --destructive-foreground: var(--ctp-mocha-crust);
 
     --border: var(--ctp-mocha-surface2);
@@ -179,16 +179,16 @@ body {
 
     /* Advanced Glass Effect Variables (Dark Theme) */
     --glass-bg-base-rgb: 30, 30, 46; /* --ctp-mocha-base rgb */
-    --glass-bg-opacity: 0.6; 
-    --glass-bg-hover-opacity: 0.75; /* Slightly more opaque on hover */
-    --glass-bg-active-opacity: 0.5;
+    --glass-bg-opacity: 0.85; 
+    --glass-bg-hover-opacity: 0.9;
+    --glass-bg-active-opacity: 0.8;
 
     --glass-text-rgb: var(--ctp-mocha-text);    
-    --glass-border-rgb: 205, 214, 244; /* --ctp-mocha-text (whiteish for border) */
-    --glass-border-opacity: 0.1; /* Subtle border for dark glass */
+    --glass-border-rgb: 73, 77, 100; /* --ctp-mocha-surface1 HSL 230 9% 21% - for a subtle dark border */
+    --glass-border-opacity: 0.25; 
     
     --glass-shadow-base-rgb: 0, 0, 0;  /* Black for dark theme shadow base */
-    --glass-shadow-opacity: 0.3; /* More pronounced shadow for depth */
+    --glass-shadow-opacity: 0.3; 
     
     /* Dark theme glass colors */
     --glass-bg: rgba(var(--glass-bg-base-rgb), var(--glass-bg-opacity));
@@ -221,5 +221,6 @@ body {
 .dark .text-glass-foreground {
   color: rgba(var(--glass-text-rgb), 0.95); /* Slightly brighter for dark mode */
 }
-
+    
+ 
     

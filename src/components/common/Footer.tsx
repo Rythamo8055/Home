@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer 
       className="mt-auto border-t border-border/20 py-8 text-center text-sm text-muted-foreground 
-                 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/40"
+                 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/60"
     >
       <div className="container">
         <p>
