@@ -250,7 +250,7 @@ The app emphasizes browser-based functionality, meaning all sounds are generated
     name: 'Morse Mentor',
     tagline: 'Interactive Morse Code Learning Platform.',
     url: '/morse-mentor', // Example URL, replace if it has a live deployment
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://cdn.pixabay.com/photo/2025/05/18/14/05/congratulations-9607355_1280.png',
     imageHint: 'morse code',
     description: 'An interactive web app to learn and master Morse code with lessons, quizzes, and progress tracking.',
     featuresSummary: 'Rhythmic learning, multiple quiz modes, progress tracking, PWA support.',
@@ -310,3 +310,4 @@ Target Audience:
 Individuals interested in learning Morse code for hobbies (like amateur radio), professional reasons, or personal enrichment. The application is suitable for beginners and those looking to improve their existing skills.`,
   },
 ];
+
