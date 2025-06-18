@@ -39,36 +39,6 @@ body {
     --ctp-latte-mantle: 216 29% 94%; /* #e6e9ef */
     --ctp-latte-crust: 210 25% 91%;  /* #dce0e8 */
 
-    /* Catppuccin Mocha Palette (Dark Theme) */
-    --ctp-mocha-rosewater: 347 79% 88%; /* #f5e0dc - same as latte for direct use */
-    --ctp-mocha-flamingo: 0 70% 84%; /* #f2cdcd - same as latte */
-    --ctp-mocha-pink: 326 73% 86%;    /* #f5c2e7 - same as latte */
-    --ctp-mocha-mauve: 267 84% 84%;   /* #cba6f7 */
-    --ctp-mocha-red: 346 84% 74%;     /* #f38ba8 */
-    --ctp-mocha-maroon: 346 72% 69%;  /* #eba0ac */
-    --ctp-mocha-peach: 22 92% 75%;    /* #fab387 */
-    --ctp-mocha-yellow: 43 89% 83%;   /* #f9e2af */
-    --ctp-mocha-green: 115 54% 76%;   /* #a6e3a1 */
-    --ctp-mocha-teal: 170 59% 73%;    /* #94e2d5 */
-    --ctp-mocha-sky: 193 83% 79%;     /* #89dceb */
-    --ctp-mocha-sapphire: 217 84% 79%;/* #74c7ec */
-    --ctp-mocha-blue: 217 91% 76%;    /* #89b4fa */
-    --ctp-mocha-lavender: 236 72% 83%;/* #b4befe */
-
-    --ctp-mocha-text: 225 47% 88%;        /* #cdd6f4 */
-    --ctp-mocha-subtext1: 225 24% 78%;    /* #bac2de */
-    --ctp-mocha-subtext0: 226 17% 68%;    /* #a6adc8 */
-    --ctp-mocha-overlay2: 227 12% 57%;   /* #9399b2 */
-    --ctp-mocha-overlay1: 228 10% 47%;   /* #7f849c */
-    --ctp-mocha-overlay0: 229 9% 37%;    /* #6c7086 */
-    --ctp-mocha-surface2: 229 9% 27%;    /* #585b70 */
-    --ctp-mocha-surface1: 230 9% 21%;    /* #45475a */
-    --ctp-mocha-surface0: 236 11% 16%;   /* #313244 */
-    
-    --ctp-mocha-base: 240 13% 12%;        /* #1e1e2e */
-    --ctp-mocha-mantle: 240 13% 10%;      /* #181825 */
-    --ctp-mocha-crust: 240 14% 8%;        /* #11111b */
-
     /* Light Theme (Latte) Defaults */
     --background: var(--ctp-latte-base);
     --foreground: var(--ctp-latte-text);
@@ -79,16 +49,16 @@ body {
     --popover: var(--ctp-latte-mantle);
     --popover-foreground: var(--ctp-latte-text);
 
-    --primary: var(--ctp-latte-blue);
-    --primary-foreground: var(--ctp-latte-base); /* Text on primary elements (light fg for dark primary) */
+    --primary: var(--ctp-latte-pink); /* More colorful primary for light */
+    --primary-foreground: var(--ctp-latte-crust); 
 
-    --secondary: var(--ctp-latte-teal);
+    --secondary: var(--ctp-latte-teal); 
     --secondary-foreground: var(--ctp-latte-base);
 
     --muted: var(--ctp-latte-surface1);
     --muted-foreground: var(--ctp-latte-subtext0);
 
-    --accent: var(--ctp-latte-mauve);
+    --accent: var(--ctp-latte-mauve); 
     --accent-foreground: var(--ctp-latte-base);
 
     --destructive: var(--ctp-latte-red);
@@ -98,7 +68,7 @@ body {
     --input: var(--ctp-latte-surface1);
     --ring: var(--ctp-latte-sapphire);
 
-    /* Chart Colors from Catppuccin Latte */
+    /* Chart Colors from Catppuccin Latte - More vibrant */
     --chart-1: var(--ctp-latte-blue);
     --chart-2: var(--ctp-latte-green);
     --chart-3: var(--ctp-latte-yellow);
@@ -108,19 +78,51 @@ body {
     --radius: 0.75rem;
 
     /* Advanced Glass Effect Variables (Light Theme) */
-    --glass-bg-base-rgb: 239, 241, 245; /* RGB for --ctp-latte-base */
-    --glass-text-rgb: 76, 79, 105;    /* RGB for --ctp-latte-text */
+    --glass-bg-base-rgb: 239, 241, 245; /* Corresponds to --ctp-latte-base */
+    --glass-text-rgb: 76, 79, 105;    /* Corresponds to --ctp-latte-text */
+    --glass-shadow-color-rgb: 108, 112, 134; /* Corresponds to ctp-latte-overlay0 for subtle shadow */
 
-    --glass-bg: rgba(var(--glass-bg-base-rgb), 0.65); /* Latte base at 65% opacity */
-    --glass-bg-hover: rgba(var(--glass-bg-base-rgb), 0.75);
-    --glass-bg-active: rgba(var(--glass-bg-base-rgb), 0.55);
-    
-    --glass-border-color: rgba(var(--glass-text-rgb), 0.15); /* Latte text at 15% opacity for border */
-    --glass-shadow-color-rgb: 108, 112, 134; /* RGB for ctp-latte-overlay0 for subtle shadow */
+    --glass-bg-light: rgba(var(--glass-bg-base-rgb), 0.65); /* Base opacity for light glass */
+    --glass-bg-hover-light: rgba(var(--glass-bg-base-rgb), 0.75); /* Hover state */
+    --glass-bg-active-light: rgba(var(--glass-bg-base-rgb), 0.55); /* Active state */
+    --glass-border-light: rgba(var(--glass-text-rgb), 0.15); /* Border color */
+    --glass-shadow-light-base-rgb: var(--glass-shadow-color-rgb); /* Shadow base */
+
   }
 
   .dark {
-    /* Dark Theme (Mocha) Overrides */
+    /* Catppuccin Mocha Palette (Dark Theme) - More Colorful */
+    --ctp-mocha-rosewater: 347 79% 88%; 
+    --ctp-mocha-flamingo: 0 70% 84%; 
+    --ctp-mocha-pink: 326 73% 86%;    
+    --ctp-mocha-mauve: 267 84% 84%;   
+    --ctp-mocha-red: 346 84% 74%;     
+    --ctp-mocha-maroon: 346 72% 69%;  
+    --ctp-mocha-peach: 22 92% 75%;    
+    --ctp-mocha-yellow: 43 89% 83%;   
+    --ctp-mocha-green: 115 54% 76%;   
+    --ctp-mocha-teal: 170 59% 73%;    
+    --ctp-mocha-sky: 193 83% 79%;     
+    --ctp-mocha-sapphire: 217 84% 79%;
+    --ctp-mocha-blue: 217 91% 76%;    
+    --ctp-mocha-lavender: 236 72% 83%;
+
+    --ctp-mocha-text: 225 47% 88%;        
+    --ctp-mocha-subtext1: 225 24% 78%;    
+    --ctp-mocha-subtext0: 226 17% 68%;    
+    --ctp-mocha-overlay2: 227 12% 57%;   
+    --ctp-mocha-overlay1: 228 10% 47%;   
+    --ctp-mocha-overlay0: 229 9% 37%;    
+    --ctp-mocha-surface2: 229 9% 27%;    
+    --ctp-mocha-surface1: 230 9% 21%;   
+    --ctp-mocha-surface0: 236 11% 16%;   
+    
+    --ctp-mocha-base: 240 13% 12%; /* #1e1e2e */
+    --ctp-mocha-mantle: 240 13% 10%; /* #181825 */
+    --ctp-mocha-crust: 240 14% 8%; /* #11111b */
+
+
+    /* Dark Theme (Mocha) Overrides - More Colorful */
     --background: var(--ctp-mocha-base);
     --foreground: var(--ctp-mocha-text);
 
@@ -130,16 +132,16 @@ body {
     --popover: var(--ctp-mocha-mantle);
     --popover-foreground: var(--ctp-mocha-text);
 
-    --primary: var(--ctp-mocha-blue); /* More vibrant blue */
+    --primary: var(--ctp-mocha-pink); /* More colorful primary */
     --primary-foreground: var(--ctp-mocha-crust);
 
-    --secondary: var(--ctp-mocha-teal); /* More vibrant teal */
+    --secondary: var(--ctp-mocha-teal); 
     --secondary-foreground: var(--ctp-mocha-crust);
 
     --muted: var(--ctp-mocha-surface1);
     --muted-foreground: var(--ctp-mocha-subtext0);
 
-    --accent: var(--ctp-mocha-mauve); /* More vibrant mauve */
+    --accent: var(--ctp-mocha-mauve); 
     --accent-foreground: var(--ctp-mocha-crust);
 
     --destructive: var(--ctp-mocha-red);
@@ -149,7 +151,7 @@ body {
     --input: var(--ctp-mocha-surface1);
     --ring: var(--ctp-mocha-sky);
 
-    /* Chart Colors from Catppuccin Mocha */
+    /* Chart Colors from Catppuccin Mocha - More vibrant */
     --chart-1: var(--ctp-mocha-blue);
     --chart-2: var(--ctp-mocha-green);
     --chart-3: var(--ctp-mocha-yellow);
@@ -157,25 +159,50 @@ body {
     --chart-5: var(--ctp-mocha-mauve);
 
     /* Advanced Glass Effect Variables (Dark Theme) */
-    /* Using Crust for a darker glass than pure black, closer to Catppuccin feel */
-    --glass-bg-base-rgb: 17, 17, 27; /* RGB for --ctp-mocha-crust */
-    --glass-text-rgb: 205, 214, 244; /* RGB for --ctp-mocha-text */
+    --glass-bg-base-rgb: 17, 17, 27;      /* Corresponds to --ctp-mocha-crust for a darker glass */
+    --glass-text-rgb: 205, 214, 244;      /* Corresponds to --ctp-mocha-text */
+    --glass-shadow-color-rgb: 0, 0, 0;  /* Black for dark theme shadow base */
 
-    --glass-bg: rgba(var(--glass-bg-base-rgb), 0.6); /* Crust at 60% opacity */
-    --glass-bg-hover: rgba(var(--glass-bg-base-rgb), 0.7);
-    --glass-bg-active: rgba(var(--glass-bg-base-rgb), 0.5);
-    
-    --glass-border-color: rgba(var(--glass-text-rgb), 0.1); /* Mocha text at 10% opacity for border */
-    --glass-shadow-color-rgb: 0, 0, 0; /* Black for dark theme shadow base */
+    --glass-bg-dark: rgba(var(--glass-bg-base-rgb), 0.5); /* Base opacity for dark glass */
+    --glass-bg-hover-dark: rgba(var(--glass-bg-base-rgb), 0.6); /* Hover state */
+    --glass-bg-active-dark: rgba(var(--glass-bg-base-rgb), 0.4); /* Active state */
+    --glass-border-dark: rgba(var(--glass-text-rgb), 0.08); /* Border color, more subtle */
+    --glass-shadow-dark-base-rgb: var(--glass-shadow-color-rgb); /* Shadow base */
   }
-}
 
-@layer base {
+  /* Shared glass variables that pick from light/dark specifics */
+  /* These ensure that the correct theme's glass variables are used */
+  :root { /* Light theme defaults for glass */
+    --glass-bg: var(--glass-bg-light);
+    --glass-bg-hover: var(--glass-bg-hover-light);
+    --glass-bg-active: var(--glass-bg-active-light);
+    --glass-border-color: var(--glass-border-light);
+    --glass-shadow-base-rgb: var(--glass-shadow-light-base-rgb);
+  }
+  .dark { /* Dark theme overrides for glass */
+    --glass-bg: var(--glass-bg-dark);
+    --glass-bg-hover: var(--glass-bg-hover-dark);
+    --glass-bg-active: var(--glass-bg-active-dark);
+    --glass-border-color: var(--glass-border-dark);
+    --glass-shadow-base-rgb: var(--glass-shadow-dark-base-rgb);
+  }
+  
+  /* Global background image for the HTML element */
+  html {
+    background-image: url('https://raw.githubusercontent.com/linuxdotexe/nordic-wallpapers/master/dynamic-wallpapers/AnimeRoomBoard/ign_AnimeRoomBoard-2.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* h-full is applied via class in RootLayout */
+  }
+
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
-    @apply min-h-screen transition-colors duration-300; /* Added transition for theme switch */
+    @apply min-h-screen transition-colors duration-300;
   }
 }
+
