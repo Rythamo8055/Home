@@ -84,16 +84,16 @@ body {
     --radius: 0.75rem;
 
     /* Advanced Glass Effect Variables (Light Theme) */
-    --glass-bg-base-rgb: 255, 255, 255; /* Lighter base for glass (white) */
+    --glass-bg-base-rgb: 239, 241, 245; /* --ctp-latte-base (eff1f5) */
     --glass-bg-opacity: 0.85; 
     --glass-bg-hover-opacity: 0.9;
     --glass-bg-active-opacity: 0.8;
 
     --glass-text-rgb: var(--ctp-latte-text); 
-    --glass-border-rgb: 220, 38%, 97%; /* --ctp-latte-base (very light grey border) */
+    --glass-border-rgb: 204, 208, 218; /* --ctp-latte-surface1 (ccd0da) */
     --glass-border-opacity: 0.3; 
     
-    --glass-shadow-base-rgb: 108, 112, 134; /* --ctp-latte-overlay0 (darker for shadow) */
+    --glass-shadow-base-rgb: 108, 112, 134; /* --ctp-latte-overlay0 (6c7086) */
     --glass-shadow-opacity: 0.1;
 
 
@@ -133,7 +133,7 @@ body {
     --ctp-mocha-surface1: 230 9% 21%;   /* #494d64 */
     --ctp-mocha-surface0: 236 11% 16%;   /* #363a4f */
     
-    --ctp-mocha-base: 240 13% 12%; /* #1e1e2e Desaturated Tan (#302D41) is close to 240 9% 21% - using base for deeper dark */
+    --ctp-mocha-base: 240 13% 12%; /* #1e1e2e */
     --ctp-mocha-mantle: 240 13% 10%; /* #181825 */
     --ctp-mocha-crust: 240 14% 8%; /* #11111b */
 
@@ -178,13 +178,13 @@ body {
     --chart-5: var(--ctp-mocha-mauve);
 
     /* Advanced Glass Effect Variables (Dark Theme) */
-    --glass-bg-base-rgb: 30, 30, 46; /* --ctp-mocha-base rgb */
+    --glass-bg-base-rgb: 24, 24, 37; /* --ctp-mocha-mantle (181825) */
     --glass-bg-opacity: 0.85; 
     --glass-bg-hover-opacity: 0.9;
     --glass-bg-active-opacity: 0.8;
 
     --glass-text-rgb: var(--ctp-mocha-text);    
-    --glass-border-rgb: 73, 77, 100; /* --ctp-mocha-surface1 HSL 230 9% 21% - for a subtle dark border */
+    --glass-border-rgb: 73, 77, 100; /* --ctp-mocha-surface1 (494d64) */
     --glass-border-opacity: 0.25; 
     
     --glass-shadow-base-rgb: 0, 0, 0;  /* Black for dark theme shadow base */
@@ -205,7 +205,7 @@ body {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-attachment: fixed; Removed for better mobile responsiveness */
     height: 100%; /* Ensure html takes full height */
   }
 
