@@ -1,10 +1,11 @@
+
 import { appsData } from "@/lib/app-data";
 import { AppCard } from "./AppCard";
 
 export function AppShowcase() {
   return (
     <section className="container py-12 md:py-16 lg:py-20">
-      <div className="text-center mb-12">
+      <div className="text-center mb-12 animate-fade-in">
         <h1 className="font-headline text-4xl md:text-5xl font-bold tracking-tight text-primary">
           My Applications
         </h1>
@@ -14,12 +15,12 @@ export function AppShowcase() {
       </div>
       {appsData.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {appsData.map((app) => (
-            <AppCard key={app.id} app={app} />
+          {appsData.map((app, index) => (
+            <AppCard key={app.id} app={app} animationDelay={`${index * 150}ms`} />
           ))}
         </div>
       ) : (
-        <p className="text-center text-muted-foreground">No applications to display yet.</p>
+        <p className="text-center text-muted-foreground animate-fade-in">No applications to display yet.</p>
       )}
     </section>
   );

@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import type { PortfolioApp } from "@/lib/app-data";
@@ -7,11 +8,15 @@ import { ExternalLink, Info } from "lucide-react";
 
 interface AppCardProps {
   app: PortfolioApp;
+  animationDelay?: string;
 }
 
-export function AppCard({ app }: AppCardProps) {
+export function AppCard({ app, animationDelay }: AppCardProps) {
   return (
-    <Card className="flex flex-col h-full bg-glass-bg backdrop-blur-md border-glass-border shadow-glass transition-all duration-300 hover:shadow-xl hover:border-primary/50">
+    <Card 
+      className="flex flex-col h-full bg-glass-bg backdrop-blur-md border-glass-border shadow-glass transition-all duration-300 hover:shadow-xl hover:border-primary/50 animate-fade-in"
+      style={{ animationDelay }}
+    >
       <CardHeader>
         <div className="relative w-full h-48 rounded-t-lg overflow-hidden mb-4">
           <Image
