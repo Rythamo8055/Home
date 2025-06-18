@@ -27,9 +27,9 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                "text-sm font-medium transition-all duration-150 ease-in-out px-4 py-2 rounded-md", // Changed from rounded-full
+                "text-sm font-medium transition-all duration-150 ease-in-out px-4 py-2 rounded-[0.375rem]",
                 pathname === item.href
-                  ? "bg-primary text-primary-foreground shadow-md"
+                  ? "bg-primary text-primary-foreground"
                   : "text-foreground/70 hover:bg-muted hover:text-foreground"
               )}
             >
