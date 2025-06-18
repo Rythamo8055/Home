@@ -1,3 +1,4 @@
+
 export interface PortfolioApp {
   id: string;
   name: string;
@@ -17,7 +18,7 @@ export const appsData: PortfolioApp[] = [
     name: 'FlowForge',
     tagline: 'Visual Thinking & Planning, AI-Powered.',
     url: 'https://whiteboard-six-mu.vercel.app/',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://cdn.pixabay.com/photo/2025/05/18/14/05/congratulations-9607355_1280.png',
     imageHint: 'flowchart diagram',
     description: 'A web application for visual thinking and planning with flow-based diagramming, a free-form whiteboard, and AI assistance.',
     featuresSummary: 'Flow canvas with AI node suggestion, whiteboard with drawing tools, template management.',
@@ -82,7 +83,7 @@ Key Features:
     name: 'PR Visualizer',
     tagline: 'Dynamic Video Summaries for GitHub Pull Requests.',
     url: 'https://pr-fawn-rho.vercel.app/',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://cdn.pixabay.com/photo/2025/05/18/14/05/congratulations-9607355_1280.png',
     imageHint: 'code visualization',
     description: 'Transforms GitHub Pull Requests into dynamic video summaries using AI-driven code insights and animated presentations.',
     featuresSummary: 'GitHub PR data ingestion, AI code insights, client-side video generation with Remotion.',
@@ -156,7 +157,7 @@ Technology Stack Summary:
     name: 'Zenith Focus Timer',
     tagline: 'Mindful Breathing & Focus Sessions.',
     url: 'https://zenith-471.pages.dev/',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://cdn.pixabay.com/photo/2025/05/18/14/05/congratulations-9607355_1280.png',
     imageHint: 'meditation timer',
     description: 'A web app to help users improve focus, practice mindful breathing, and relax with customizable timers and sound options.',
     featuresSummary: 'Customizable timer, voice-guided breathing, ambient sounds, light/dark themes.',
