@@ -206,7 +206,7 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     /* background-attachment is 'scroll' by default for mobile */
-    height: 100%; /* Ensure html takes full height */
+    min-height: 100vh; /* Ensure html is at least viewport height and can expand */
   }
 
   /* Apply fixed attachment for larger screens (e.g., md and up) */
@@ -234,3 +234,6 @@ body {
 
 
 
+
+
+    
