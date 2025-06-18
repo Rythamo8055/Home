@@ -1,7 +1,8 @@
+
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
-import { useEffect } from "react";
+import { useActionState, useEffect } from "react";
+import { useFormStatus } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,7 +24,7 @@ function SubmitButton() {
 
 export function ContactForm() {
   const initialState: ContactFormState = { message: "", success: false };
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [state, formAction] = useActionState(submitContactForm, initialState);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -35,7 +36,7 @@ export function ContactForm() {
         });
         // Optionally reset form fields here if needed by manipulating a ref or key,
         // or by managing form field state explicitly if not using a library that handles it.
-        // For simplicity with server actions and useFormState, resetting is often handled by re-rendering.
+        // For simplicity with server actions and useActionState, resetting is often handled by re-rendering.
       } else if (state.issues || state.message !== "") { // Ensure message is not empty string before toasting error
          toast({
           title: "Error",
