@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,39 +9,39 @@ body {
 
 @layer base {
   :root {
-    --background: 252 4% 20%; /* #302D41 - User defined: desaturated tan */
-    --foreground: 225 47% 88%; /* #cdd6f4 - Catppuccino Text */
+    --background: 240 13% 12%; /* #1e1e2e - Catppuccin Mocha Base */
+    --foreground: 225 47% 88%; /* #cdd6f4 - Catppuccino Mocha Text */
 
-    --card: 237 12% 18%; /* #29283b - Catppuccino Surface0 adjusted for more separation from bg */
-    --card-foreground: 225 47% 88%; /* #cdd6f4 - Catppuccino Text */
+    --card: 236 11% 16%; /* #24273a - Catppuccino Mocha Surface0 */
+    --card-foreground: 225 47% 88%; /* #cdd6f4 - Catppuccino Mocha Text */
 
-    --popover: 240 13% 12%; /* #1e1e2e - Catppuccino Base */
-    --popover-foreground: 225 47% 88%; /* #cdd6f4 - Catppuccino Text */
+    --popover: 240 13% 10%; /* #181825 - Catppuccino Mocha Mantle */
+    --popover-foreground: 225 47% 88%; /* #cdd6f4 - Catppuccino Mocha Text */
 
-    --primary: 219 79% 75%; /* #8AADF4 - User defined: muted teal / Catppuccino Blue */
-    --primary-foreground: 240 13% 12%; /* #1e1e2e - Catppuccino Base (for contrast on buttons) */
+    --primary: 217 91% 76%; /* #89b4fa - Catppuccino Mocha Blue */
+    --primary-foreground: 240 13% 10%; /* #181825 - Catppuccino Mocha Mantle (for contrast on buttons) */
 
-    --secondary: 172 45% 70%; /* #81c8be - Catppuccino Teal */
-    --secondary-foreground: 240 13% 12%; /* #1e1e2e - Catppuccino Base */
+    --secondary: 170 59% 73%; /* #94e2d5 - Catppuccino Mocha Teal */
+    --secondary-foreground: 240 13% 10%; /* #181825 - Catppuccino Mocha Mantle */
 
-    --muted: 235 12% 23%; /* #363646 - Catppuccino Surface1 */
-    --muted-foreground: 226 17% 68%; /* #a6adc8 - Catppuccino Subtext0 */
+    --muted: 230 9% 21%; /* #313244 - Catppuccino Mocha Surface1 */
+    --muted-foreground: 226 17% 68%; /* #a6adc8 - Catppuccino Mocha Subtext0 */
 
-    --accent: 346 84% 74%; /* #F38BA8 - User defined: subtle coral / Catppuccino Rosewater */
-    --accent-foreground: 240 13% 12%; /* #1e1e2e - Catppuccino Base */
+    --accent: 267 84% 84%; /* #cba6f7 - Catppuccino Mocha Mauve */
+    --accent-foreground: 240 13% 10%; /* #181825 - Catppuccino Mocha Mantle */
 
-    --destructive: 0 56% 60%; /* #f38ba8 - Catppuccino Red */
-    --destructive-foreground: 240 13% 12%; /* #1e1e2e - Catppuccino Base */
+    --destructive: 346 84% 74%; /* #f38ba8 - Catppuccino Mocha Red */
+    --destructive-foreground: 240 13% 10%; /* #181825 - Catppuccino Mocha Mantle */
 
-    --border: 231 12% 28%; /* #414559 - Catppuccino Overlay0 adjusted for slightly less contrast */
-    --input: 233 12% 25%; /* #3b3b4f - Catppuccino Surface2 adjusted */
-    --ring: 219 79% 75%; /* #8AADF4 - Primary color for focus rings */
+    --border: 229 9% 27%; /* #45475a - Catppuccino Mocha Overlay0 */
+    --input: 229 9% 24%; /* #3b3d52 - Mix of Surface1 and Surface2 for input */
+    --ring: 217 91% 76%; /* #89b4fa - Catppuccino Mocha Blue (Primary color for focus rings) */
 
-    --chart-1: 219 79% 75%; /* Blue */
-    --chart-2: 100 57% 70%; /* Green */
-    --chart-3: 51 82% 70%;  /* Yellow */
-    --chart-4: 31 86% 70%;  /* Peach */
-    --chart-5: 266 63% 77%; /* Mauve */
+    --chart-1: 217 91% 76%; /* Blue (#89b4fa) */
+    --chart-2: 115 54% 76%; /* Green (#a6e3a1) */
+    --chart-3: 43 89% 83%;  /* Yellow (#f9e2af) */
+    --chart-4: 22 92% 75%;  /* Peach (#fab387) */
+    --chart-5: 267 84% 84%; /* Mauve (#cba6f7) */
 
     --radius: 0.75rem; /* Slightly more rounded for liquid glass feel */
 
@@ -50,8 +51,8 @@ body {
     --glass-bg-hsl: var(--card); /* HSL values of card */
     --glass-border-hsl: var(--border); /* HSL values of border */
     
-    --glass-bg: hsla(var(--glass-bg-hsl) / 0.5); /* Prompt: rgba(var(--md-sys-color-surface-rgb), 0.5) */
-    --glass-border-color: hsla(var(--glass-border-hsl) / 0.2); /* Prompt: rgba(var(--md-sys-color-outline-rgb), 0.1), using slightly higher alpha for visibility */
+    --glass-bg: hsla(var(--glass-bg-hsl), 0.5); /* Prompt: rgba(var(--md-sys-color-surface-rgb), 0.5) */
+    --glass-border-color: hsla(var(--glass-border-hsl), 0.2); /* Prompt: rgba(var(--md-sys-color-outline-rgb), 0.1), using slightly higher alpha for visibility */
   }
 
   /* No .dark class needed as this is the default theme */
@@ -66,3 +67,4 @@ body {
     @apply min-h-screen; /* Ensure body takes full height */
   }
 }
+

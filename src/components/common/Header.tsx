@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -20,14 +21,16 @@ export function Header() {
           <Code2 className="h-7 w-7" />
           <span className="font-headline text-xl font-bold">PortfolioPulse</span>
         </Link>
-        <nav className="flex items-center space-x-6">
+        <nav className="flex items-center space-x-2 md:space-x-4">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                pathname === item.href ? "text-primary" : "text-foreground/70"
+                "text-sm font-medium transition-all duration-150 ease-in-out px-4 py-2 rounded-full",
+                pathname === item.href
+                  ? "bg-primary text-primary-foreground shadow-md"
+                  : "text-foreground/70 hover:bg-muted hover:text-foreground"
               )}
             >
               {item.label}
