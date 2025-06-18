@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { PortfolioApp } from "@/lib/app-data";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Info } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 interface AppCardProps {
   app: PortfolioApp;
@@ -14,7 +14,13 @@ interface AppCardProps {
 export function AppCard({ app, animationDelay }: AppCardProps) {
   return (
     <Card 
-      className="flex flex-col h-full bg-glass-bg backdrop-blur-md backdrop-saturate-150 border-glass-border shadow-glass transition-all duration-300 hover:shadow-xl hover:border-primary/50 animate-fade-in"
+      className="flex flex-col h-full 
+                 bg-glass-gradient backdrop-blur-10 backdrop-saturate-180 
+                 border border-glass-border shadow-glass
+                 transition-all duration-300 ease-in-out 
+                 hover:shadow-xl-mocha hover:-translate-y-0.5 hover:bg-glass-bg-hover
+                 active:shadow-md-mocha active:translate-y-px active:bg-glass-bg-active
+                 animate-fade-in"
       style={{ animationDelay }}
     >
       <CardHeader>
@@ -42,11 +48,6 @@ export function AppCard({ app, animationDelay }: AppCardProps) {
             Visit App
           </Button>
         </Link>
-        {/* Future: Could link to a details page/modal */}
-        {/* <Button variant="ghost" size="sm" aria-label={`More info about ${app.name}`}>
-          <Info className="mr-2 h-4 w-4" />
-          More Info
-        </Button> */}
       </CardFooter>
     </Card>
   );

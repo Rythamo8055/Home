@@ -34,10 +34,7 @@ export function ContactForm() {
           title: "Message Sent!",
           description: state.message,
         });
-        // Optionally reset form fields here if needed by manipulating a ref or key,
-        // or by managing form field state explicitly if not using a library that handles it.
-        // For simplicity with server actions and useActionState, resetting is often handled by re-rendering.
-      } else if (state.issues || state.message !== "") { // Ensure message is not empty string before toasting error
+      } else if (state.issues || state.message !== "") { 
          toast({
           title: "Error",
           description: state.message || "Failed to send message. Please check the form.",
@@ -49,7 +46,14 @@ export function ContactForm() {
 
 
   return (
-    <Card className="w-full max-w-lg mx-auto bg-glass-bg backdrop-blur-md backdrop-saturate-150 border-glass-border shadow-glass">
+    <Card 
+      className="w-full max-w-lg mx-auto 
+                 bg-glass-bg backdrop-blur-10 backdrop-saturate-180 
+                 border border-glass-border shadow-glass
+                 transition-all duration-300 ease-in-out 
+                 hover:shadow-xl-mocha hover:bg-glass-bg-hover
+                 active:shadow-md-mocha active:bg-glass-bg-active"
+    >
       <CardHeader>
         <CardTitle className="font-headline text-3xl text-primary">Get in Touch</CardTitle>
         <CardDescription className="text-foreground/80">
@@ -108,10 +112,6 @@ export function ContactForm() {
           
           <SubmitButton />
           
-          {/* General form message display if not tied to specific fields */}
-          {/* {state.message && !state.success && (!state.issues || state.issues.length === 0) && (
-            <p className="text-sm text-destructive">{state.message}</p>
-          )} */}
         </form>
       </CardContent>
     </Card>

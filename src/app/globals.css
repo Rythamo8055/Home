@@ -4,55 +4,90 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Source Code Pro', monospace; /* Explicitly set from layout */
 }
 
 @layer base {
   :root {
-    --background: 240 13% 12%; /* #1e1e2e - Catppuccin Mocha Base */
-    --foreground: 225 47% 88%; /* #cdd6f4 - Catppuccino Mocha Text */
+    /* Catppuccin Mocha Palette */
+    --ctp-rosewater: 255 86% 89%; /* #f5e0dc */
+    --ctp-flamingo: 251 82% 82%; /* #f2cdcd */
+    --ctp-pink: 336 67% 83%;    /* #f5c2e7 */
+    --ctp-mauve: 267 84% 84%;   /* #cba6f7 */
+    --ctp-red: 346 84% 74%;     /* #f38ba8 */
+    --ctp-maroon: 346 72% 69%;  /* #eba0ac */
+    --ctp-peach: 22 92% 75%;    /* #fab387 */
+    --ctp-yellow: 43 89% 83%;   /* #f9e2af */
+    --ctp-green: 115 54% 76%;   /* #a6e3a1 */
+    --ctp-teal: 170 59% 73%;    /* #94e2d5 */
+    --ctp-sky: 193 83% 79%;     /* #89dceb */
+    --ctp-sapphire: 217 84% 79%;/* #74c7ec */
+    --ctp-blue: 217 91% 76%;    /* #89b4fa */
+    --ctp-lavender: 236 72% 83%;/* #b4befe */
 
-    --card: 236 11% 16%; /* #24273a - Catppuccino Mocha Surface0 */
-    --card-foreground: 225 47% 88%; /* #cdd6f4 - Catppuccino Mocha Text */
-
-    --popover: 240 13% 10%; /* #181825 - Catppuccino Mocha Mantle */
-    --popover-foreground: 225 47% 88%; /* #cdd6f4 - Catppuccino Mocha Text */
-
-    --primary: 217 91% 76%; /* #89b4fa - Catppuccino Mocha Blue */
-    --primary-foreground: 240 13% 10%; /* #181825 - Catppuccino Mocha Mantle (for contrast on buttons) */
-
-    --secondary: 170 59% 73%; /* #94e2d5 - Catppuccino Mocha Teal */
-    --secondary-foreground: 240 13% 10%; /* #181825 - Catppuccino Mocha Mantle */
-
-    --muted: 230 9% 21%; /* #313244 - Catppuccino Mocha Surface1 */
-    --muted-foreground: 226 17% 68%; /* #a6adc8 - Catppuccino Mocha Subtext0 */
-
-    --accent: 267 84% 84%; /* #cba6f7 - Catppuccino Mocha Mauve */
-    --accent-foreground: 240 13% 10%; /* #181825 - Catppuccino Mocha Mantle */
-
-    --destructive: 346 84% 74%; /* #f38ba8 - Catppuccino Mocha Red */
-    --destructive-foreground: 240 13% 10%; /* #181825 - Catppuccino Mocha Mantle */
-
-    --border: 229 9% 27%; /* #45475a - Catppuccino Mocha Overlay0 */
-    --input: 229 9% 24%; /* #3b3d52 - Mix of Surface1 and Surface2 for input */
-    --ring: 217 91% 76%; /* #89b4fa - Catppuccino Mocha Blue (Primary color for focus rings) */
-
-    --chart-1: 217 91% 76%; /* Blue (#89b4fa) */
-    --chart-2: 115 54% 76%; /* Green (#a6e3a1) */
-    --chart-3: 43 89% 83%;  /* Yellow (#f9e2af) */
-    --chart-4: 22 92% 75%;  /* Peach (#fab387) */
-    --chart-5: 267 84% 84%; /* Mauve (#cba6f7) */
-
-    --radius: 0.75rem; /* Slightly more rounded for liquid glass feel */
-
-    /* Custom variables for liquid glass effect, aligned with Adaptive Design Prompt */
-    /* Using --card (Surface0) as the base for glass background color */
-    /* Using --border (Overlay0) as the base for glass border color */
-    --glass-bg-hsl: var(--card); /* HSL values of card */
-    --glass-border-hsl: var(--border); /* HSL values of border */
+    --ctp-text: 225 47% 88%;        /* #cdd6f4 */
+    --ctp-subtext1: 225 24% 78%;    /* #bac2de */
+    --ctp-subtext0: 226 17% 68%;    /* #a6adc8 */
+    --ctp-overlay2: 227 12% 57%;   /* #9399b2 */
+    --ctp-overlay1: 228 10% 47%;   /* #7f849c */
+    --ctp-overlay0: 229 9% 37%;    /* #6c7086 */
+    --ctp-surface2: 229 9% 27%;    /* #585b70 */
+    --ctp-surface1: 230 9% 21%;    /* #45475a */
+    --ctp-surface0: 236 11% 16%;   /* #313244 */
     
-    --glass-bg: hsla(var(--glass-bg-hsl), 0.5); /* Prompt: rgba(var(--md-sys-color-surface-rgb), 0.5) */
-    --glass-border-color: hsla(var(--glass-border-hsl), 0.2); /* Prompt: rgba(var(--md-sys-color-outline-rgb), 0.1), using slightly higher alpha for visibility */
+    --ctp-base: 240 13% 12%;        /* #1e1e2e */
+    --ctp-mantle: 240 13% 10%;      /* #181825 */
+    --ctp-crust: 240 14% 8%;        /* #11111b */
+
+    /* ShadCN Theme Variables using Catppuccin Mocha */
+    --background: var(--ctp-base);
+    --foreground: var(--ctp-text);
+
+    --card: var(--ctp-surface0); /* Card background, slightly lighter than base */
+    --card-foreground: var(--ctp-text);
+
+    --popover: var(--ctp-mantle); /* Popover background, darker than card */
+    --popover-foreground: var(--ctp-text);
+
+    --primary: var(--ctp-blue); /* Main interactive color - Blue */
+    --primary-foreground: var(--ctp-crust); /* Text on primary elements */
+
+    --secondary: var(--ctp-teal); /* Secondary interactive color - Teal */
+    --secondary-foreground: var(--ctp-crust); /* Text on secondary elements */
+
+    --muted: var(--ctp-surface1); /* Muted backgrounds - Surface1 */
+    --muted-foreground: var(--ctp-subtext0); /* Muted text */
+
+    --accent: var(--ctp-mauve); /* Accent color - Mauve */
+    --accent-foreground: var(--ctp-crust); /* Text on accent elements */
+
+    --destructive: var(--ctp-red); /* Destructive actions - Red */
+    --destructive-foreground: var(--ctp-crust); /* Text on destructive elements */
+
+    --border: var(--ctp-surface2); /* Borders - Surface2, a bit lighter */
+    --input: var(--ctp-surface1);  /* Input field backgrounds */
+    --ring: var(--ctp-sky);        /* Focus rings - Sky for contrast */
+
+    /* Chart Colors from Catppuccin */
+    --chart-1: var(--ctp-blue);
+    --chart-2: var(--ctp-green);
+    --chart-3: var(--ctp-yellow);
+    --chart-4: var(--ctp-peach);
+    --chart-5: var(--ctp-mauve);
+
+    --radius: 0.75rem;
+
+    /* Advanced Glass Effect Variables (Dark Theme) */
+    /* Using Crust for a darker glass than pure black, closer to Catppuccin feel */
+    --glass-bg-base-rgb: 17, 17, 27; /* RGB for --ctp-crust */
+    --glass-text-rgb: 205, 214, 244; /* RGB for --ctp-text (alternative to pure white for border) */
+
+    --glass-bg: rgba(var(--glass-bg-base-rgb), 0.6); /* Crust at 60% opacity */
+    --glass-bg-hover: rgba(var(--glass-bg-base-rgb), 0.7); /* Crust at 70% opacity */
+    --glass-bg-active: rgba(var(--glass-bg-base-rgb), 0.5); /* Crust at 50% opacity */
+    
+    /* Using a very light/white border as per prompt "border-white/10" */
+    --glass-border-color: rgba(255, 255, 255, 0.1);
   }
 
   /* No .dark class needed as this is the default theme */
@@ -67,4 +102,3 @@ body {
     @apply min-h-screen; /* Ensure body takes full height */
   }
 }
-

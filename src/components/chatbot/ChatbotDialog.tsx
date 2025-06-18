@@ -37,7 +37,6 @@ export function ChatbotDialog({ isOpen, onOpenChange }: ChatbotDialogProps) {
   }, [isOpen, messages.length]);
 
   useEffect(() => {
-    // Scroll to bottom when new messages are added
     if (scrollAreaRef.current) {
       const scrollableViewport = scrollAreaRef.current.querySelector('div[data-radix-scroll-area-viewport]');
       if (scrollableViewport) {
@@ -80,7 +79,14 @@ export function ChatbotDialog({ isOpen, onOpenChange }: ChatbotDialogProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px] md:max-w-[550px] lg:max-w-[650px] p-0 flex flex-col h-[70vh] max-h-[600px] bg-glass-bg border-glass-border shadow-glass backdrop-blur-md backdrop-saturate-150">
+      <DialogContent 
+        className="sm:max-w-[425px] md:max-w-[550px] lg:max-w-[650px] p-0 flex flex-col h-[70vh] max-h-[600px] 
+                   bg-glass-bg backdrop-blur-10 backdrop-saturate-180 
+                   border border-glass-border shadow-glass
+                   transition-all duration-300 ease-in-out 
+                   hover:shadow-xl-mocha hover:bg-glass-bg-hover
+                   active:shadow-md-mocha active:bg-glass-bg-active"
+      >
         <DialogHeader className="p-6 pb-2 border-b border-border/40">
           <DialogTitle className="font-headline text-primary flex items-center">
             <Bot className="h-6 w-6 mr-2 text-primary" /> Portfolio AI Assistant
