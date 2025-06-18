@@ -205,8 +205,15 @@ body {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    /* background-attachment: fixed; Removed for better mobile responsiveness */
+    /* Default attachment is scroll, better for mobile */
     height: 100%; /* Ensure html takes full height */
+  }
+
+  /* Apply fixed attachment for larger screens (e.g., md and up) */
+  @media (min-width: 768px) { /* Tailwind's 'md' breakpoint */
+    html {
+      background-attachment: fixed;
+    }
   }
 
   * {
@@ -224,3 +231,4 @@ body {
     
  
     
+
